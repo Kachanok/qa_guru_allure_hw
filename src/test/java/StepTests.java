@@ -12,8 +12,8 @@ import static org.openqa.selenium.By.linkText;
 public class StepTests {
 
 
-    public static final String repo = "Kachanok/qa_guru_allure_hw";
-    public static final String issue = "TestIssue";
+    public static final String REPO = "Kachanok/qa_guru_allure_hw";
+    public static final String ISSUE = "TestIssue";
 
     @Test
     public void lambdaStepTest(){
@@ -22,19 +22,19 @@ public class StepTests {
         step("Open main page", () -> {
             open("https://github.com");
         });
-        step("Search for repo" + repo, () -> {
+        step("Search for repo" + REPO, () -> {
             $(".search-input-container").click();
             $("#query-builder-test").sendKeys("Kachanok/qa_guru_allure_hw");
             $("#query-builder-test").submit();
         });
-        step("Click on repo link" + repo, () -> {
+        step("Click on repo link" + REPO, () -> {
             $(linkText("Kachanok/qa_guru_allure_hw")).click();
         });
         step("Click to issue-tab", () -> {
             $("#issues-tab").click();
         });
-        step("Check if an issue exist" + issue, () -> {
-            $(withText(issue)).should(Condition.exist);
+        step("Check if an issue exist" + ISSUE, () -> {
+            $(withText(ISSUE)).should(Condition.exist);
         });
 
     }
@@ -44,10 +44,10 @@ public class StepTests {
         WebSteps steps = new WebSteps();
         SelenideLogger.addListener("allure", new AllureSelenide());
         steps.openMainPage();
-        steps.searchForRepo(repo);
-        steps.clickRepo(repo);
+        steps.searchForRepo(REPO);
+        steps.clickRepo(REPO);
         steps.clickIssue();
-        steps.checkByIssueName(issue);
+        steps.checkByIssueName(ISSUE);
 
 
     }

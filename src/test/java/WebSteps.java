@@ -1,9 +1,5 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.WebDriverRunner;
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
@@ -16,17 +12,17 @@ public class WebSteps {
         open("https://github.com");
     }
 
-    @Step("Search for {repo}")
-    public void searchForRepo(String repo) {
+    @Step("Search for {REPO}")
+    public void searchForRepo(String REPO) {
         $(".search-input-container").click();
-        $("#query-builder-test").sendKeys(repo);
+        $("#query-builder-test").sendKeys(REPO);
         $("#query-builder-test").submit();
 
     }
 
-    @Step("Click on repo link {repo}")
-    public void clickRepo(String repo) {
-        $(linkText(repo)).click();
+    @Step("Click on repo link {REPO}")
+    public void clickRepo(String REPO) {
+        $(linkText(REPO)).click();
 
     }
 
@@ -37,8 +33,8 @@ public class WebSteps {
     }
 
     @Step("Check if an issue exist {issue}")
-    public void checkByIssueName(String issue) {
-        $(withText(StepTests.issue)).should(Condition.exist);
+    public void checkByIssueName(String ISSUE) {
+        $(withText(StepTests.ISSUE)).should(Condition.exist);
 
     }
 
