@@ -13,7 +13,7 @@ public class WebSteps {
     }
 
     @Step("Search for {REPO}")
-    public void searchForRepo(String REPO) {
+    public void searchForRepo(String value) {
         $(".search-input-container").click();
         $("#query-builder-test").sendKeys(REPO);
         $("#query-builder-test").submit();
@@ -21,7 +21,7 @@ public class WebSteps {
     }
 
     @Step("Click on repo link {REPO}")
-    public void clickRepo(String REPO) {
+    public void clickRepo(String value) {
         $(linkText(REPO)).click();
 
     }
@@ -33,7 +33,7 @@ public class WebSteps {
     }
 
     @Step("Check if an issue exist {issue}")
-    public void checkByIssueName(String ISSUE) {
+    public void checkByIssueName(String value) {
         $(withText(StepTests.ISSUE)).should(Condition.exist);
 
     }
