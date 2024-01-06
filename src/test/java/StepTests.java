@@ -24,11 +24,11 @@ public class StepTests {
         });
         step("Search for repo" + REPO, () -> {
             $(".search-input-container").click();
-            $("#query-builder-test").sendKeys("Kachanok/qa_guru_allure_hw");
+            $("#query-builder-test").sendKeys(REPO);
             $("#query-builder-test").submit();
         });
         step("Click on repo link" + REPO, () -> {
-            $(linkText("Kachanok/qa_guru_allure_hw")).click();
+            $(linkText(REPO)).click();
         });
         step("Click to issue-tab", () -> {
             $("#issues-tab").click();
