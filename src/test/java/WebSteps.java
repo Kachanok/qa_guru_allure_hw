@@ -20,7 +20,7 @@ public class WebSteps {
 
     }
 
-    @Step("Click on repo link {repo}")
+    @Step("Click repo link {repo}")
     public void clickRepo(String repo) {
         $(linkText(repo)).click();
 
